@@ -14,8 +14,6 @@
     --darker-color: #a7aaaf;
 
     --white-color: #ffffff;
-    --pink-color: #aa1178;
-    --violet-color: #7008a4;
 
     --transition-some: background .3s,
     box-shadow 0.4s;
@@ -102,7 +100,7 @@ body {
     outline: none;
     background: none;
     font-size: 18px;
-    color: var(--white-color);
+    color: var(--icon-color);
     font-weight:bold;
     padding: 20px 10px 20px 50px;
 }
