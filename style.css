@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Ubuntu:ital@1&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+:root {
+    --bg-color: #f0edf1;
+    --text-color: #555;
+
+    --light-color: #ffffff;
+    --dark-color: #cbced1;
+    --darker-color: #a7aaaf;
+
+    --white-color: #ffffff;
+    --pink-color: #aa1178;
+    --violet-color: #7008a4;
+
+    --transition-some: background .3s,
+    box-shadow 0.4s;
+    --transition-all: all 0.4s;
+}
+
+.dark {
+    --bg-color: #34393e;
+    --text-color: #41484e;
+
+    --light-color: #41484e;
+    --dark-color: #2e3236;
+    --darker-color: #1c1f22;
+
+    --icon-color: #ffffff;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--text-color);
+    background: var(--bg-color);
+
+}
+
+.login-div,
+.registration-div {
+    width: 430px;
+    height: 700px;
+    padding: 60px 35px 35px 35px;
+    border-radius: 40px;
+    background: var(--bg-color);
+    box-shadow: 13px 13px 20px var(--dark-color),
+    -13px -13px 20px var(--light-color);
+    transition: var(--transition-some);
+}
+
+.logo {
+    background: url(images/icons.png);
+    background-position: center;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 
+    /* offset*/ 0px 0px 5px var(--bg-color),
+    /* bottom right */8px 8px 15px var(--darker-color),
+    /* top left*/ -8px -8px 15px var(--light-color);
+    transition: var(--transition-some);
+}
+
+.title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    padding-top: 13px;
+    user-select: none;
+    color: var(--icon-color);
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    user-select: none;
+    color: var(--icon-color);
+}
+
+.fields {
+    width: 100%;
+    padding: 75px 5px 5px 5px;
+}
+
+.fields input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: var(--white-color);
+    font-weight:bold;
+    padding: 20px 10px 20px 50px;
+}
+
+.username,
+.password,
+.fullName {
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px var(--dark-color),
+    inset -8px -8px 8px var(--light-color);
+    user-select: none;
+    color: var(--icon-color);
+}
+
+.fields i {
+    position: absolute;
+    margin: 20px 10px -3px -220px;
+    font-size: 25px;    
+}
+
+.login-button,
+.registration-button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 30px;
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px;
+    background: #0724e4;
+    letter-spacing: 1.2px;
+    user-select: none;
+    transition: all .5s;
+}
+
+.login-button:hover,
+.registration-button:hover {
+    background: #8011b7;
+}
+
+.login-button:active,
+.registration-button:active {
+    background: #0c0372;
+    letter-spacing: .5px;
+}
+
+.link {
+    color: #555;
+    margin-top: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.link a {
+    color: #555;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #170aaf;
+    transition: 0.5s;
+}
+
+.link a:hover {
+    color: #0724e4;
+}
+
+.form.active .login-div {
+    display: none;
+}
+
+.form .registration-div {
+    display: none;
+}
+
+.form.active .registration-div {
+    display: block;
+}
+
+ /* button mode */
+.toggle {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width: 100px;
+    height: 50px;
+    border: 0.1px solid var(--light-color);
+    border-radius: 75px;
+    background-color: var(--bg-color);
+    box-shadow: inset 10px 10px 15px var(--darker-color),
+    inset -10px -10px 15px var(--light-color);
+}
+
+.toggle .icon {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 3px var(--bg-color),
+    4px 4px 7px var(--darker-color),
+    -4px -4px 7px var(--light-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+
+.toggle .moon {
+    opacity: 0;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 150px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.toggle input:checked + label .moon {
+    opacity: 1;
+}
+.toggle input:checked + label .sun {
+    opacity: 0;
+}
+
+.toggle input:checked + label .icon {
+    transform: translateX(52px) rotate(360deg);
+}
+
+
+@media (max-width: 450px) {
+    .login-div,
+    .registration-div {
+        width: 300px;
+        height: 650px;
+    }
+
+    .fields input {
+        padding: 15px 5px 15px 50px;
+    }
+
+    .fields {
+        padding: 50px 5px 5px 5px;
+    }
+
+    .fields i {
+        margin: -35px 5px -3px 15px;
+        font-size: 20px;
+    }
+
+    .link {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .toggle {
+        width: 60px;
+        height: 45px;
+    }
+
+    .toggle .icon {
+        width: 25px;
+        height: 25px;
+        margin: 11px;
+    }
+
+    .toggle input:checked + label .icon {
+        transform: translateX(20px) rotate(360deg);
+    }
+}
